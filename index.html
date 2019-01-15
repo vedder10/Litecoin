@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="js csstransforms3d">
+  <head>
+    
+    <!--
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    -->
+ 
+    <!--
+	  #############################################################
+
+	  What The Fuck Is the Point Of Litecoin?
+		
+	  #############################################################
+	  -->
+
+	  <title>What the fuck is the point of Litecoin?</title>
+	
+	  <!--
+    <meta property="og:title" content="WTF is the point of Litecoin?" id="ogTitle">
+    <meta property="og:site_name" content="WTF is the point of Litecoin?">
+	  <meta property="og:url" content="http://whatthefuckisthepointoflitecoin.com/" id="ogUrl">
+	  <meta property="og:type" content="crytocurrency">
+	  <meta property="og:image" content="http://whatthefuckisthepointoflitecoin.com/litecoin.jpg">
+	  <meta property="fb:admins" content="8402354,536529357,103599">
+	  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    -->
+	  <link href="include/css.css" rel="stylesheet" type="text/css">
+	  <link href="include/style.css" rel="stylesheet" type="text/css">
+	  <style id="holderjs-style" type="text/css"></style>
+  </head>
+
+  <body class=" __plain_text_READY__">
+    <div id="wtf">
+  	  <div id="so" class="fuck">What the fuck is the point of Litecoin?</div>
+  	  <div id="frames">
+  	    <!-- frames here -->
+  	    <!--
+        <div class="frame">
+        <div class="text">Charlie dumped</div>
+        <div class="footnote"><a href="http://www.litecoin.org">http://www.litecoin.org</a></div>
+        <div class="bfd">
+  		    <a href="javascript:void(0);" class="quip">Big fucking deal. What else?</a>
+  	    </div>
+        -->
+      </div>
+    </div>
+
+    <!--
+    <div id="share" class="clearfix">
+	    <div class="wrap">
+		    <div id="links">
+			    <a href="mailto:wtfisthepointoflitecoin@gmail.com" title="Know something about Litecoin that we didn\'t include? Email it!">WTF! You forgot…</a>
+			    <br>
+		    </div>
+	    </div>
+    </div>
+    -->
+    
+    <script type="text/javascript"
+      <!--
+      async="" src="include/ga.js"
+      -->
+    ></script>
+    <script src="include/jquery.min.js"></script>
+    <script src="include/mustache.js"></script>
+    <script src="include/modernizer.js"></script>
+    <script type="text/html" id="frame_template">
+      <div class="frame future">
+        <div class="text">{{text}}</div>
+        <div class="footnote"><a href="{{footnote}}">{{footnote}}</a></div>
+        <div class="bfd">
+  		    <a href="javascript:void(0);" class="quip">{{quip}}</a>
+  	    </div>
+      </div>
+    </script>
+
+    <script type="text/javascript">
+      var text = [];
+      text[1] = "Charlie";
+      var footnotes = [];
+      footnotes[1] = "http://www.litecoin.org";
+      footnotes[2] = "";
+      var quips = [];
+      quips[0] = "Big fucking deal. What else?";
+      quips[1] = "";
+    </script>
+
+    <script type="text/javascript">
+      $(function(){
+      var cursor = 1 + Math.floor((text.length - 1)*Math.random());
+      var $frames = $('#frames');
+      var $current, $old;
+      var frame_template = $('#frame_template').html();
+  
+      function next_frame(){
+      $old = $($current);
+    
+      // set up next frame
+      $current = $(Mustache.render(frame_template, {
+        text: text[cursor],
+        footnote: footnotes[cursor],
+        quip: quips[Math.floor(Math.random()*quips.length)]
+      })).appendTo($frames);
+    
+      $old.addClass('past');
+		  setTimeout(function(){
+			  $current.removeClass('future');				
+			    setTimeout(function(){
+			      $old.remove();}, 600); }, 200);
+            cursor = (cursor >= text.length -1) ? 1 : cursor + 1;}
+            $('#frames').delegate('a.quip', 'click', function(){
+            next_frame();
+          });
+        next_frame();
+      });
+    </script>
+  </body>
+</html>
