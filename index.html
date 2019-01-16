@@ -66,27 +66,42 @@
     <script src="include/mustache.js"></script>
     <script src="include/modernizer.js"></script>
     <script type="text/html" id="frame_template">
-      <div class="frame future">
-        <div class="text">{{text}}</div>
-        <div class="footnote"><a href="{{footnote}}">{{footnote}}</a></div>
-        <div class="bfd">
-  		    <a href="javascript:void(0);" class="quip">{{quip}}</a>
-  	    </div>
-      </div>
+     	<div class="frame future">
+       	<div class="text">{{text}}</div>
+       	<div class="footnote"><a href="{{footnote}}">{{footnote}}</a></div>
+       	<div class="bfd">
+					<a href="javascript:void(0);" class="quip">{{quip}}</a>
+  	   	</div>
+     	</div>
     </script>
-
+		
     <script type="text/javascript">
-      var text = [];
-      text[1] = "Charlie";
+      var pages = [];
+				pages[0] = "Charlie_dumped";
+				pages[1] = "etc";
+			var text = [];
+      	text[0] = "Charlie";
+				text[1] = "etc";
       var footnotes = [];
-      footnotes[1] = "http://www.litecoin.org";
-      footnotes[2] = "";
+      	footnotes[0] = "http://www.litecoin.org";
+      	footnotes[1] = "etc";
       var quips = [];
-      quips[0] = "Big fucking deal. What else?";
-      quips[1] = "";
+      	quips[0] = "Big fucking deal. What else?";
+      	quips[1] = "etc";
+			var newURL = window.location.pathname;
+			var newPage = 0;
+			for (var i = 0; i < pages.length; i++) {
+				if newURL.pathname = pages[i] {
+				newPage = i	
+				}
+			}
     </script>
 
     <script type="text/javascript">
+			
+		</script>
+
+		<script type="text/javascript">
       $(function(){
       var cursor = 1 + Math.floor((text.length - 1)*Math.random());
       var $frames = $('#frames');
